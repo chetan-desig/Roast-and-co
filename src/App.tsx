@@ -18,8 +18,8 @@ export default function App() {
     restDelta: 0.001
   });
 
-  // Calculate frame index (0-30 for 37 frames)
-  const frameIndex = useTransform(smoothProgress, [0, 0.5], [1, 37]);
+  // Calculate frame index (0-30 for 40 frames)
+  const frameIndex = useTransform(smoothProgress, [0, 0.5], [1, 40]);
   const [currentFrame, setCurrentFrame] = useState(1);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function App() {
 
   // Preload images
   useEffect(() => {
-    for (let i = 1; i <= 37; i++) {
+    for (let i = 1; i <= 40; i++) {
       const img = new Image();
       img.src = `${import.meta.env.BASE_URL}assets/coffee-frames/ezgif-frame-${i.toString().padStart(3, '0')}.jpg`;
     }
@@ -56,7 +56,7 @@ export default function App() {
   ];
 
   const currentFramePath = useMemo(() => {
-    const frameNum = Math.min(Math.max(currentFrame, 1), 37);
+    const frameNum = Math.min(Math.max(currentFrame, 1), 40);
     return `${import.meta.env.BASE_URL}assets/coffee-frames/ezgif-frame-${frameNum.toString().padStart(3, '0')}.jpg`;
   }, [currentFrame]);
   return (
